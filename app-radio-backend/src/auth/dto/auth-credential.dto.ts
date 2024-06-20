@@ -13,4 +13,5 @@ export class AuthCredentialDto{
     @MaxLength(20)
     @Matches(/((?=.*\d)|(?=.*\W+))(?=(.*[!@#$%^&*()_+=.])+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/ , { message: 'Password muy debil!' })
     password: string;
+
 }

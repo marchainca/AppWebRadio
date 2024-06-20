@@ -14,6 +14,9 @@ export class UsersEntity extends BaseEntity {
     password: string;
 
     @Column()
+    role: string;
+
+    @Column()
     salt: string;
 
     @Column()

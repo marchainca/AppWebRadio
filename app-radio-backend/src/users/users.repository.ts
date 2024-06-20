@@ -19,7 +19,6 @@ export class UsersRepository extends Repository<UsersEntity> {
             newUser.password = await this.hashPassword(password, newUser.salt );
             await newUser.save();
         } catch (error) {
-            //console.log(error)
             if(error.code === 'ER_DUP_ENTRY' || error.code === 1062){
                 throw new ConflictException('Usuario ya existe! ');
             }else{

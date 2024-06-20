@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UnauthorizedException, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Post, UnauthorizedException, UseGuards, ValidationPipe } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthCredentialDto } from './dto/auth-credential.dto';
 import { JwtToken } from './jwt-token.model';
