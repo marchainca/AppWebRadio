@@ -38,6 +38,9 @@ export class NewsEntity {
     role: string
 
     @Column()
+    isActivate: Boolean
+
+    @Column()
     createdAt: Date;
 
     @Column({default: new Date()})
