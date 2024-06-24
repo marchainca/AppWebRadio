@@ -37,8 +37,9 @@ export class NewsService {
         }
     }
 
-    async update(idnews: number, news: Partial<NewsEntity>): Promise<NewsEntity>{
+    async update(news: Partial<NewsEntity>): Promise<NewsEntity>{
         try {
+            const idnews = news.idnews
             const update = await this.newsRepository.update(idnews, news)
             return await this.findOne(idnews);
         } catch (error) {
