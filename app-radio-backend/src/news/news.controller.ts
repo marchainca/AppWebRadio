@@ -24,8 +24,9 @@ export class NewsController {
     }
 
     @Post('/create/')
-    create(@Body() newsItem): Promise<NewsEntity>{
+    create(@Body() newsItem: NewsDto): Promise<NewsEntity>{
         try {
+            console.log(newsItem)
             return this.newsService.create(newsItem);
         } catch (error) {
             throw new HttpException({

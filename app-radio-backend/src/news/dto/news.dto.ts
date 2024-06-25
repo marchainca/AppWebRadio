@@ -1,9 +1,7 @@
 import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class NewsDto {
-    @IsNotEmpty()
-    idnews: number;
-
+    
     @IsNotEmpty()
     @IsNumber()
     idusers: number
