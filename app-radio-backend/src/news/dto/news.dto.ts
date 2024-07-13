@@ -1,3 +1,4 @@
+import { Transform } from "class-transformer";
 import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class NewsDto {
@@ -24,6 +25,7 @@ export class NewsDto {
 
     @IsNotEmpty()
     @IsDate()
+    @Transform(({value})=> new Date(value))
     date: Date;
 
     @IsNotEmpty()

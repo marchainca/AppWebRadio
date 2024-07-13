@@ -1,7 +1,8 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, Put, UseGuards, ValidationPipe } from '@nestjs/common';
 import { NewsService } from './news.service';
 import { NewsEntity } from './news.entity';
 import { NewsDto } from './dto/news.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('api/v1/news')
 export class NewsController {
@@ -9,6 +10,7 @@ export class NewsController {
     constructor(private newsService: NewsService){}
 
     @Get('/')
+    @UseGuards(AuthGuard())
     async findAll(): Promise<NewsEntity[]>{
         try {
             return await this.newsService.findAll()
@@ -24,7 +26,8 @@ export class NewsController {
     }
 
     @Post('/create/')
-    create(@Body() newsItem: NewsDto): Promise<NewsEntity>{
+    @UseGuards(AuthGuard())
+    create(@Body(ValidationPipe) newsItem: NewsDto): Promise<NewsEntity>{
         try {
             console.log(newsItem)
             return this.newsService.create(newsItem);
@@ -39,6 +42,7 @@ export class NewsController {
     }
 
     @Get('/findNews/:id')
+    @UseGuards(AuthGuard())
     async findOne(@Param('id') id: string ): Promise<NewsEntity>{
         try {
             return await this.newsService.findOne(parseInt(id))
@@ -53,6 +57,7 @@ export class NewsController {
     }
 
     @Put('/updateNews/')
+    @UseGuards(AuthGuard())
     async update(@Body() payload: Partial<NewsDto>): Promise<NewsEntity>{
         try {
             return await this.newsService.update(payload)
