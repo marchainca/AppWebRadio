@@ -3,11 +3,14 @@ import { NewsService } from './news.service';
 import { NewsEntity } from './news.entity';
 import { NewsDto } from './dto/news.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { SocialMediaPostsService } from 'src/socials/social-media-posts.service';
 
 @Controller('api/v1/news')
 export class NewsController {
 
-    constructor(private newsService: NewsService){}
+    constructor(private newsService: NewsService,
+        private socialMediaPostsService: SocialMediaPostsService,
+    ){}
 
     @Get('/')
     @UseGuards(AuthGuard())
@@ -65,6 +68,21 @@ export class NewsController {
             throw new HttpException({
             status: HttpStatus.FORBIDDEN,
             error: `Error in route 'api/v1/news/updateNews'`,
+            }, HttpStatus.FORBIDDEN, {
+            cause: error
+            });
+        }
+    }
+
+    @Post('/publishingFcbk')
+    @UseGuards(AuthGuard())
+    async facebookPost(@Body() payload: object ):Promise<object>{
+        try {
+            return await this.socialMediaPostsService.publishPostFcbk(payload)
+        } catch (error) {
+            throw new HttpException({
+            status: HttpStatus.FORBIDDEN,
+            error: `Error in route 'api/v1/news/publishingFcbk'`,
             }, HttpStatus.FORBIDDEN, {
             cause: error
             });

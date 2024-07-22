@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersEntity } from 'src/users/users.entity';
 import { UsersModule } from 'src/users/users.module';
 import { JwtStrategy } from './jwt.strategy';
+import { FacebookStrategy } from './facebook.strategy';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { JwtStrategy } from './jwt.strategy';
     PassportModule.register({defaultStrategy: 'jwt'}),
     JwtModule.register({secret: jwtConstants.secret, signOptions: {expiresIn: 3600}})
   ],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy, FacebookStrategy],
   controllers: [AuthController],
   exports: [AuthService, JwtStrategy, PassportModule], 
 })

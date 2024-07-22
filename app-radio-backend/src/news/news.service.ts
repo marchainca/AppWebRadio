@@ -15,7 +15,7 @@ export class NewsService {
             const create = this.newsRepository.create(newNews);
             return await this.newsRepository.save(create);
         } catch (error) {
-            return error;
+            throw error;
         }
         
     }
@@ -24,7 +24,7 @@ export class NewsService {
         try {
             return await this.newsRepository.find();
         } catch (error) {
-            return error;
+            throw error;
         }
         
     }
@@ -33,7 +33,7 @@ export class NewsService {
         try {
             return await this.newsRepository.findOne({where: {idnews}});
         } catch (error) {
-            return error;
+            throw error;
         }
     }
 
@@ -43,7 +43,7 @@ export class NewsService {
             const update = await this.newsRepository.update(idnews, news)
             return await this.findOne(idnews);
         } catch (error) {
-            return error;
+            throw error;
         }
     }
 
@@ -52,7 +52,7 @@ export class NewsService {
             const inactivate = await this.newsRepository.update(idnews, {isActivate: false})
             return true
         } catch (error) {
-            return error
+            throw error
         }
     }
 
