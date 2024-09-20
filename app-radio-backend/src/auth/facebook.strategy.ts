@@ -7,9 +7,11 @@ import { FcbkConstants } from "./constantes";
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
     constructor(private authService: AuthService){
         super({
+            //ToDo las constantes deben de ir en las variables de entorno
             clientID: FcbkConstants.FACEBOOK_APP_ID, // El ID de la aplicación de Facebook
             clientSecret: FcbkConstants.FACEBOOK_APP_SECRET, // El secreto de la aplicación de Facebook
-            callbackURL: 'http://localhost:3000/auth/facebook/callback', // La URL de redirección después de la autenticación
+            callbackURL: "http://localhost:3000/auth/facebook/callback", // La URL de redirección después de la autenticación
+            scope: 'email',
             profileFields: ['id', 'name', 'email', 'photos'], // Campos del perfil de Facebook que se solicitarán
 
         });

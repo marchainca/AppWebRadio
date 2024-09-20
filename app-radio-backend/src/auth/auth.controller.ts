@@ -31,6 +31,7 @@ export class AuthController {
     @UseGuards(AuthGuard('facebook'))
     async facebookAuthRedirect(@Req() req) {
         // Facebook redirige a esta URL después de la autenticación
+        console.log("Petición");
         return {
         message: 'User information from Facebook',
         user: req.user,
