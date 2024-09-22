@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { LiveStreamComponent } from './live-stream/live-stream.component';
 import { SearchComponent } from './search/search.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchComponent } from './search/search.component';
     HomeComponent,
     ProgramsComponent,
     LiveStreamComponent,
-    SearchComponent
+    SearchComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
