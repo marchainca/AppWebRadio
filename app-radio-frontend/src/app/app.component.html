@@ -1,13 +1,4 @@
-<div class="app-container">
-  <app-header>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  </app-header>
-  <div class="main-layout">
-    <app-sidebar></app-sidebar>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+<app-header></app-header>
+<app-sidebar (sectionChanged)="onSectionChange($event)"></app-sidebar>
+<app-section [selectedSection]="selectedSection"></app-section>
+

@@ -1,106 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-.header-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 8px;
-    border-bottom: 1px solid #F4EFE6;
-    background-color: #f8f9fa; /* Bootstrap light background */
-}
-  
-.logo-nav-container {
-    display: flex;
-    align-items: center;
-    gap: 24px;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #f8f9fa; /* Color de fondo claro */
+  border-bottom: 1px solid #ddd; /* Línea inferior */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas en pantallas pequeñas */
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
+  height: 50px;
+}
+.logo:hover {
+  cursor: pointer;
+}
+.desktop_menu {
+  margin-top: 10px;
+  display: flex;
+  gap: 24px;
+}
+.desktop_menu ul {
+  padding: 0;
+  margin: 0;
+  
+}
+.desktop_menu ul li {
+  font-family: 'Noto Sans', sans-serif;
+  list-style-type: none;
+  color: #1C160C;
+  display: inline-block;
+  font-size: 18px;
+  margin-left: 40px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-size: 19px;
+  font-weight: 550;
 }
 
-/* .title {
-    font-family: "Adam", sans-serif;
-    font-size: 1.6rem;
-    margin: 1px;
-    margin-left: 250px;
-    font-weight: 750;
-} */
-
-.nav-links {
-    display: flex;
-    gap: 50px;
+.menu-icon {
+  display: none;
 }
 
-.nav-link {
-    font-family: "Adam", sans-serif;
+.social-media {  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 700;
+  margin-top: -25px;
+  margin-left: 70%;
+}
+
+.social-media a {  
+  text-decoration: none;
+  font-size: 22px;
+  width: 20%;
+  height: 20%;
+  line-height: 20%;
+  text-align: right;
+}
+
+@media screen and (min-width: 128px) and (max-width: 900px) {
+
+  .desktop_menu {
+    position: fixed !important;
+    right: -280px;
+    transition: 0.4s ease-in-out;
+    top: 57px;
+    background: #f8f9fa;
+    width: 280px;
+    height: 100%;
+  }
+
+  .desktop_menu ul li {
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding: 10px 0 10px 26px;
+    border-bottom: 1px solid grey;
+  }
+
+  .menu-icon {
+    display: block;
     color: #1C160C;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 550;
-}
+    font-size: 40px;
+    padding: 0px 0 10px 26px;
+    margin-top: 0%;
+  }
+  
+  .mobile_menu {
+    right: 0;
+    transition: 0.4s ease-in-out;
+  }
 
-.search-settings-container {
-    display:inline-flex;
+  .social-media {  
+    right: -280px; 
+    align-content:center;
+    display: inline-flexbox;
     align-items: center;
-    gap: 60px;
-    justify-content: flex-end;
-}
+    margin: -50px 0px 0px 25px;
+  }
+  
+  /* .social-media a {  
+    text-decoration: none;
+    font-size: 18px;
+    width: 20%;
+    height: 20%;
+    line-height: 20%;
+    text-align: right;
+  } */
 
-.input-group {
-    margin-top: 10px;
-    display: flex;
-    align-items: center; /* Alinea el icono y el campo de búsqueda horizontalmente */
-    justify-content: flex-end; /* Mantiene el contenido hacia la derecha */
-    width: 100%; /* Ocupa el 100% del contenedor padre */
-}
-
-.input-group-text {
-    background-color: #B8D9F7;
-    border: none;
-    display: flex;
-    align-items: center; /* Asegura que el icono se centre verticalmente */
-}
-
-.form-control {
-    background-color: #B8D9F7;
-    border: none;
-    max-width: 200px; /* Limita el tamaño de la barra de búsqueda */
-}
-
-.btn-settings {
-    margin-top: 5px;
-    background-color: #F4EFE6;
-    border: none;
-    margin-right: 50px;
-    padding: 0.5rem;
-    border-radius: 50%;
-}
-
-/* Media Queries para pantallas pequeñas */
-@media (max-width: 768px) {
-    .logo {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .nav-links {
-        gap: 20px;
-    }
-
-    .search-settings-container {
-        max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
-        gap: 8px; /* Menor espacio en pantallas pequeñas */
-    }
-
-    .form-control {
-        max-width: 100%; /* Ocupa el 100% del espacio disponible en pantallas pequeñas */
-    }
-
-    .btn-settings {
-        margin-right: 10px; /* Menor margen en pantallas pequeñas */
-    }
+  .logo {
+    height: 28px;
+    width: 100px;
+    margin-top: 10%;
+    margin-left: 10px;
+  }
 }

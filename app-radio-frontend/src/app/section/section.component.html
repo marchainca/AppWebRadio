@@ -1,0 +1,9 @@
+<div class="news-preview">
+    <div *ngFor="let news of selectedNews" class="news-item">
+        <img [src]="news.image" alt="{{ news.title }}" class="news-image">
+        <div class="news-details">
+        <p class="news-date">{{ news.date }}</p>
+        <h3 class="news-title">{{ news.title }}</h3>
+        </div>
+    </div>
+</div>

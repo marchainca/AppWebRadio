@@ -1,0 +1,140 @@
+.sidebar {
+    width: 250px;
+    background-color: #0A4070;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    top: 83px;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out; /* Transición suave para abrir/cerrar */
+  }
+
+  /* Estilos para el encabezado del sidebar */
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+.sidebar-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar-title {
+  color: #e2e8f0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.sidebar-subtitle {
+    font-size: 0.9rem;
+    color: white;
+    margin-top: 5px;
+  }
+
+  
+  .sidebar.closed {
+    transform: translateX(-100%); /* Mueve el sidebar fuera de la pantalla */
+  }
+  
+  /* Estilos para el botón de cierre del sidebar */
+  .close-sidebar-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color:#e2e8f0;
+  }
+  
+  /* Estilos del botón de menú hamburguesa para abrir el sidebar */
+  .open-sidebar-btn {
+    position: fixed;
+    top: 15px;
+    left: 10px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+  }
+  
+  /* Estilos para el menú del sidebar */
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0; /* 0 0 0 0 derecha */
+    margin: 0;
+  }
+  
+  .sidebar-menu ul li {
+    margin-bottom: 16px;
+  }
+  
+  .sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    color:#e2e8f0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 15px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar-menu ul li a i {
+    font-size: 1.8rem;
+    margin-right: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra suave para dar efecto grueso */
+  }
+  
+  .sidebar-menu ul li a:hover {
+    background-color: #B8D9F5;
+    color: black;
+  }
+
+
+  .dropdown-toggle{
+    background-color: transparent;
+    border: none;
+    color:#e2e8f0;
+    width:100%;
+  }
+
+  .dropdown-toggle:hover{
+    color: black;
+  }
+  
+  /* Media Queries para pantallas pequeñas */
+  @media (min-width: 128px) and (max-width: 900px) {
+    .sidebar {
+        top: 75px;
+        transform: translateX(-100%); /* Oculta el sidebar por defecto */
+    }
+  
+    .sidebar.closed {
+      transform: translateX(0); /* Muestra el sidebar cuando está abierto */
+    }
+  
+    /* Mostrar el botón de cerrar en móviles */
+    .close-sidebar-btn {
+      display: block;
+    }
+  
+    /* Mostrar el botón de abrir en móviles */
+    .open-sidebar-btn {
+        display: block;
+        color: #1C160C;
+        font-size: 40px;
+        padding: 0px 0 0px 0px;
+        margin-top: 5.5px;
+        transition: transform 0.4s ease-in-out;
+    }
+  }
+  

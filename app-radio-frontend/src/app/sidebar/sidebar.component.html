@@ -1,10 +1,68 @@
-<nav class="sidebar">
-    <ul>
-      <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
-      <li><a routerLink="/programs" routerLinkActive="active">Programas</a></li>
-      <li><a routerLink="/live-stream" routerLinkActive="active">Transmisión en vivo</a></li>
-      <li><a routerLink="/search" routerLinkActive="active">Buscar</a></li>
-      <li><a routerLink="/services" routerLinkActive="active">Servicios</a></li>
-    </ul>
-  </nav>
+<aside class="sidebar" [class.closed]="isSidebarClosed">
+    <div class="sidebar-header">
+      <button class="close-sidebar-btn" (click)="toggleSidebar()">
+        <i class="bi bi-x-lg"></i> <!-- Icono de cierre -->
+      </button>
+      <!-- {{ 'title' | transloco }} -->
+      <h2 class="sidebar-title">Agencia Comunitaria de Noticias</h2>
+      <p class="sidebar-subtitle">Sintonízanos en la 96.0 FM</p>
+    </div>
+    
+    <nav class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="#" (click)="onSectionSelect('actualidad')">
+            <i class="bi bi-arrow-repeat"></i>
+            <span>Actualidad</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="onSectionSelect('artistas')">
+            <i class="bi bi-music-note"></i>
+            <span>Artistas locales</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="onSectionSelect('noticias')">
+            <i class="bi bi-newspaper"></i>
+            <span>Noticias</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="onSectionSelect('comunicaciones')">
+            <i class="bi bi-chat-dots"></i>
+            <span>Comunicaciones</span>
+          </a>
+        </li>
+        <!-- Ítem Configuraciones con menú desplegable -->
+        <!-- <li>
+            <a>
+                <i class="bi bi-translate"></i>
+                <select [(ngModel)]="selectedLeng" (change)="setLanguage()" class="dropdown-toggle" aria-label="true">
+                    <option value="0">Idiomas</option>
+                    <option value="Inglés">Inglés</option>
+                    <option value="Español">Español</option>
+                  </select>
+            </a>
+        </li> -->
+
+        <!-- Ítem para los modos de visualización -->
+        <!-- <li>
+            <a>
+                <i class={{displayIcon}}></i>
+                <select [(ngModel)]="selectedOption" (change)="setTheme()" class="dropdown-toggle" aria-label="true" >
+                    <option value="0">Visualización</option>
+                    <option value="1">Dark</option>
+                    <option value="2">Light</option>
+                </select>
+            </a>
+        </li> -->
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- Botón para abrir el sidebar en pantallas pequeñas -->
+  <button class="open-sidebar-btn" (click)="toggleSidebar()">
+    <i class="bi bi-list"></i> <!-- Icono de menú hamburguesa -->
+  </button>
   

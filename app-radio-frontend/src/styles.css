@@ -1,10 +1,1 @@
-@font-face {
-  font-family: 'Adam';
-  src: url('/assets/font/Adam-Bold.ttf') format('ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
-  font-family: 'Adam', sans-serif;
-}
+/* You can add global styles to this file, and also import other style files */
